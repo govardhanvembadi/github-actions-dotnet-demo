@@ -29,10 +29,4 @@ jobs:
     - name: Run tests for MainApplication.tests
       run: dotnet test MainApplication/MainApplication.Tests/MainApplication.Tests.csproj --configuration Release
 
-    - name: Run tests for MainApplication.Tests
-      run: |
-        mkdir -p test-results
-        dotnet test MainApplication/MainApplication.Tests/MainApplication.Tests.csproj --configuration Release --logger "xunit;LogFileName=test-results.xml"
-        mv test-results.xml test-results/
-          
    
