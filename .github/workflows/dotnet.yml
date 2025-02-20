@@ -25,10 +25,7 @@ jobs:
 
     - name: Build the MainApplication.tests project
       run: dotnet build MainApplication/MainApplication.Tests/MainApplication.Tests.csproj --configuration Release 
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
+ 
     - name: Run tests for MainApplication.tests
       run: dotnet test MainApplication/MainApplication.Tests/MainApplication.Tests.csproj --configuration Release
 
