@@ -21,12 +21,12 @@ jobs:
       run: dotnet restore MainApplication/MainApplication.Tests/MainApplication.Tests.csproj 
       
     - name: Build the mainapp project
-      run: dotnet build MainApplication/MainApplication/MainApplication.csproj --configuration Release  
+      run: dotnet build MainApplication/MainApplication/MainApplication.csproj  
 
     - name: Build the MainApplication.tests project
-      run: dotnet build MainApplication/MainApplication.Tests/MainApplication.Tests.csproj --configuration Release 
+      run: dotnet build MainApplication/MainApplication.Tests/MainApplication.Tests.csproj 
  
     - name: Run tests for MainApplication.tests
-      run: dotnet test MainApplication/MainApplication.Tests/MainApplication.Tests.csproj --configuration Release
+      run: dotnet test MainApplication/MainApplication.Tests/MainApplication.Tests.csproj 
 
    
