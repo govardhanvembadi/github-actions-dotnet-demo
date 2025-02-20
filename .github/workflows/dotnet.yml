@@ -4,31 +4,30 @@ on:
   workflow_dispatch:
 jobs:
   build:
-    runs-on: ubuntu-latest  # Use the latest Ubuntu image
-
+    runs-on: ubuntu-latest
     steps:
     - name: Check out repository
-      uses: actions/checkout@v2   # Check out the code from the repository
-
+      uses: actions/checkout@v2   
+      
     - name: Set up .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: '9.0'  # Specify the .NET version you're using
+        dotnet-version: '9.0' 
 
     - name: Restore dependencies for mainapp
-      run: dotnet restore MainApplication/MainApplication/MainApplication.csproj  # Restore dependencies for the main application
+      run: dotnet restore MainApplication/MainApplication/MainApplication.csproj 
 
     - name: Restore dependencies for mainapp.tests
-      run: dotnet restore MainApplication/MainApplication.Tests/MainApplication.Tests.csproj  # Restore dependencies for the test project
-
+      run: dotnet restore MainApplication/MainApplication.Tests/MainApplication.Tests.csproj 
+      
     - name: Build the mainapp project
-      run: dotnet build MainApplication/MainApplication/MainApplication.csproj --configuration Release  # Build the application project in Release mode
+      run: dotnet build MainApplication/MainApplication/MainApplication.csproj --configuration Release  
 
     - name: Build the MainApplication.tests project
-      run: dotnet build MainApplication/MainApplication.Tests/MainApplication.Tests.csproj --configuration Release  # Build the test project
+      run: dotnet build MainApplication/MainApplication.Tests/MainApplication.Tests.csproj --configuration Release 
 
     - name: Run tests for MainApplication.tests
-      run: dotnet test MainApplication/MainApplication.Tests/MainApplication.Tests.csproj --configuration Release  # Run tests for the test project
+      run: dotnet test MainApplication/MainApplication.Tests/MainApplication.Tests.csproj --configuration Release
 
     - name: Run tests for MainApplication.Tests
       run: |
