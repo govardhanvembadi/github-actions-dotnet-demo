@@ -34,7 +34,7 @@ jobs:
       if: always()  # This ensures that the test results are published even if the tests fail
       run: |
         mkdir -p test-results
-        dotnet test main/mainapp.tests/mainapp.tests.csproj --configuration Release --logger "xunit;LogFileName=test-results.xml"
+        dotnet test MainApplication/MainApplication.tests/MainApplication.tests.csproj --configuration Release --logger "xunit;LogFileName=test-results.xml"
         mv test-results.xml test-results/
       
    
