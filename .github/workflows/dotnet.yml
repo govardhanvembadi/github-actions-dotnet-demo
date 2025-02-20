@@ -37,9 +37,4 @@ jobs:
         dotnet test main/mainapp.tests/mainapp.tests.csproj --configuration Release --logger "xunit;LogFileName=test-results.xml"
         mv test-results.xml test-results/
       
-    - name: Upload test results to GitHub
-      if: always()
-      uses: actions/upload-artifact@v3  # Upload the test results as an artifact
-      with:
-        name: test-results
-        path: test-results/test-results.xml  # Upload the test results to GitHub artifacts
+   
