@@ -16,19 +16,19 @@ jobs:
         dotnet-version: '6.0'  # Specify the .NET version you're using
 
     - name: Restore dependencies for mainapp
-      run: dotnet restore main/mainapp/mainapp.csproj  # Restore dependencies for the main application
+      run: dotnet restore MainApplication/MainApplication/MainApplication.csproj  # Restore dependencies for the main application
 
     - name: Restore dependencies for mainapp.tests
-      run: dotnet restore main/mainapp.tests/mainapp.tests.csproj  # Restore dependencies for the test project
+      run: dotnet restore MainApplication/MainApplication.tests/MainApplication.tests.csproj  # Restore dependencies for the test project
 
     - name: Build the mainapp project
-      run: dotnet build main/mainapp/mainapp.csproj --configuration Release  # Build the application project in Release mode
+      run: dotnet build MainApplication/MainApplication/MainApplication.csproj --configuration Release  # Build the application project in Release mode
 
-    - name: Build the mainapp.tests project
-      run: dotnet build main/mainapp.tests/mainapp.tests.csproj --configuration Release  # Build the test project
+    - name: Build the MainApplication.tests project
+      run: dotnet build MainApplication/MainApplication.tests/MainApplication.tests.csproj --configuration Release  # Build the test project
 
-    - name: Run tests for mainapp.tests
-      run: dotnet test main/mainapp.tests/mainapp.tests.csproj --configuration Release  # Run tests for the test project
+    - name: Run tests for MainApplication.tests
+      run: dotnet test MainApplication/MainApplication.tests/MainApplication.tests.csproj --configuration Release  # Run tests for the test project
 
     - name: Publish test results
       if: always()  # This ensures that the test results are published even if the tests fail
