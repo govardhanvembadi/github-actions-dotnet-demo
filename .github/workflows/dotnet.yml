@@ -31,11 +31,10 @@ jobs:
     - name: Run tests
       run: dotnet test --configuration Release 
 
-    - name: Publish test results
-      if: always() 
+    - name: Run tests for MainApplication.Tests
       run: |
         mkdir -p test-results
-        dotnet test --configuration Release --logger "xunit;LogFileName=test-results.xml"
+        dotnet test MainApplication/MainApplication.Tests/MainApplication.Tests.csproj --configuration Release --logger "xunit;LogFileName=test-results.xml"
         mv test-results.xml test-results/
       
     - name: Upload test results to GitHub
