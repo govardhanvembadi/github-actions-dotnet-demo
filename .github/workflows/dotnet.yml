@@ -67,10 +67,8 @@ jobs:
   print_configs:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repository
-        uses: actions/checkout@v4
       - name: print config
-        uses: ./.github/actions/reusable_action
+        uses: ./.github/workflows/new_config_action.yml
         with:
           build_artifacts: ${{ inputs.build_artifacts }}
           print_config: ${{ inputs.print_config }}
