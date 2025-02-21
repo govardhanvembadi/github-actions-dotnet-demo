@@ -12,6 +12,7 @@ on:
         required: true
         type: boolean
         default: false
+  workflow_dispatch:
 
 jobs:
   print_config_job: 
