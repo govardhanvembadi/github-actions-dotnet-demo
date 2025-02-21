@@ -58,7 +58,7 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v4
       - name: print config
-        uses: ./.github/actions/config_action
+        uses: ./.github/workflows/new_config-action.yml
         with:
           build_artifacts: ${{ inputs.build_artifacts }}
           print_config: ${{ inputs.print_config }}
