@@ -14,9 +14,11 @@ inputs:
     default: false
 
 runs:
-    steps:
-      - name: Print build_artifacts variable
-        env:
-          BUILD_ARTIFACTS: ${{ inputs.build_artifacts }}
-        run: |
-          echo "the build_artifacts is set to $BUILD_ARTIFACTS"
+  using: composite
+  shell: bash
+  steps:
+    - name: Print build_artifacts variable
+      env:
+        BUILD_ARTIFACTS: ${{ inputs.build_artifacts }}
+      run: |
+        echo "the build_artifacts is set to $BUILD_ARTIFACTS"
