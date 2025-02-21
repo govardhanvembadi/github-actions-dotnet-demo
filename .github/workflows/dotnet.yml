@@ -1,7 +1,21 @@
 name: .NET Core Build and Test
 
 on:
+  pull_request:
+    branches: ["main"]
+  
   workflow_dispatch:
+    inputs:
+      dotnet_version:
+        description: '.NET version'
+        required: true
+        type: string
+        default: '9.0'
+      build_artifcats:
+        description: 'to build artifacts'
+        required: false
+        type: boolean
+        default: false
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,8 +26,10 @@ jobs:
     - name: Set up .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: '9.0' 
+        dotnet-version: ${{ inputs.dotnet_version }} 
 
+    - name: dotnet version
+      run: echo dotnet version ${{ inputs.dotnet_version }}
     - name: Restore dependencies for mainapp
       run: dotnet restore MainApplication/MainApplication/MainApplication.csproj 
 
