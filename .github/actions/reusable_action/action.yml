@@ -1,7 +1,18 @@
 name: config_action
-description: to print the configuration
 on:
   workflow_call:
+    inputs:
+      build_artifacts:
+        description: 'to build artifacts'
+        required: false
+        type: boolean
+        default: false
+      print_config:
+        description: 'to print config'
+        required: true
+        type: boolean
+        default: false
+  workflow_dispatch:
     inputs:
       build_artifacts:
         description: 'to build artifacts'
