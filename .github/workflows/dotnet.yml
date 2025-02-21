@@ -1,6 +1,9 @@
 name: .NET Core Build and Test
 
 on:
+  schedule:
+    - cron: '0 6 * * *'
+    
   pull_request:
     branches: ["main"]
   
