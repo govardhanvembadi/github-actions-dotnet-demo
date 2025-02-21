@@ -15,9 +15,9 @@ inputs:
 
 runs:
   using: 'composite'
-  shell: bash
   steps:
     - name: Print build_artifacts variable
+      shell: bash
       env:
         BUILD_ARTIFACTS: ${{ inputs.build_artifacts }}
       run: |
