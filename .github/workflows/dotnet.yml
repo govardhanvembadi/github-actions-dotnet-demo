@@ -65,12 +65,9 @@ jobs:
 
       
   print_configs:
-    runs-on: ubuntu-latest
-    steps:
-      - name: print config
-        uses: ./.github/workflows/new_config_action.yml
-        with:
-          build_artifacts: ${{ inputs.build_artifacts }}
-          print_config: ${{ inputs.print_config }}
+    uses: ./.github/workflows/new_config_action.yml
+    with:
+      build_artifacts: ${{ inputs.build_artifacts }}
+      print_config: ${{ inputs.print_config }}
 
    
