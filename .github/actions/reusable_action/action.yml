@@ -1,26 +1,20 @@
 name: config_action
-on:
-  workflow_call:
-    inputs:
-      build_artifacts:
-        description: 'to build artifacts'
-        required: false
-        type: boolean
-        default: false
-      print_config:
-        description: 'to print config'
-        required: true
-        type: boolean
-        default: false
+description: reusable workfl;ow in actions folder
 
-jobs:
-  print_config_job: 
-    if: ${{ inputs.print_config }}
-    runs-on: ubuntu-latest
+inputs:
+  build_artifacts:
+    description: 'to build artifacts'
+    required: false
+    type: boolean
+    default: false
+  print_config:
+    description: 'to print config'
+    required: true
+    type: boolean
+    default: false
+
+runs:
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
-    
       - name: Print build_artifacts variable
         env:
           BUILD_ARTIFACTS: ${{ inputs.build_artifacts }}
