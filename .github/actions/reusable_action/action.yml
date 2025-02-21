@@ -14,7 +14,7 @@ inputs:
     default: false
 
 runs:
-  using: composite
+  using: 'composite'
   shell: bash
   steps:
     - name: Print build_artifacts variable
