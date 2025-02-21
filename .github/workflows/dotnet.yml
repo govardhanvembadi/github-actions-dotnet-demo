@@ -70,7 +70,7 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v4
       - name: print config
-        uses: .github/actions/reusable_action
+        uses: ./.github/actions/reusable_action
         with:
           build_artifacts: ${{ inputs.build_artifacts }}
           print_config: ${{ inputs.print_config }}
