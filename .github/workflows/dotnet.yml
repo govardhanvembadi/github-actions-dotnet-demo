@@ -11,7 +11,7 @@ on:
         required: true
         type: string
         default: '9.0'
-      build_artifcats:
+      build_artifacts:
         description: 'to build artifacts'
         required: false
         type: boolean
@@ -43,6 +43,18 @@ jobs:
       run: dotnet build MainApplication/MainApplication.Tests/MainApplication.Tests.csproj 
  
     - name: Run tests for MainApplication.tests
-      run: dotnet test MainApplication/MainApplication.Tests/MainApplication.Tests.csproj 
+      run: dotnet test MainApplication/MainApplication.Tests/MainApplication.Tests.csproj   
+  print_configs:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          EVENT_CONTEXT: ${{ toJSON(github.event) }}
+        run: |
+          echo $EVENT_CONTEXT
+
+      - name: build_artifacts variables
+        env:
+          BUILD_ARTIFACTS: ${{ inputs.build_artifacts }}
+        run: echo the build_artifacts is set to $BUILD_ARTIFACTS
 
    
