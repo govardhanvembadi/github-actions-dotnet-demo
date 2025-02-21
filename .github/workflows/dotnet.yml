@@ -53,17 +53,14 @@ jobs:
 
       
   print_configs:
-    if: ${{ inputs.print_config }}
     runs-on: ubuntu-latest
     steps:
-      - env:
-          EVENT_CONTEXT: ${{ toJSON(github.event) }}
-        run: |
-          echo $EVENT_CONTEXT
-
-      - name: build_artifacts variables
-        env:
-          BUILD_ARTIFACTS: ${{ inputs.build_artifacts }}
-        run: echo the build_artifacts is set to $BUILD_ARTIFACTS
+      - name: checkout repository
+        uses: actions/checkout@v4
+      - name: print config
+        uses: ./.github/actions/config_action
+        with:
+          build_artifacts: ${{ inputs.build_artifacts }}
+          print_config: ${{ inputs.print_config }}
 
    
